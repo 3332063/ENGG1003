@@ -127,16 +127,12 @@ int main()
                   int kv, n;
                   char ch[100];
                   printf("\nEnter the code to be decoded: ");
-                  scanf("%[^\n]s", ch);
+                  scanf("%s", &ch);
                   printf("Enter the key value: ");
                   scanf("%d", &kv);
                   for(n=0; n<strlen(ch); n++)
                     {
-                      if(ch[n]==' ') { }
-                      else
-                        {
-                          ch[n]=ch[n]-kv;
-                        }
+                      ch[n]=ch[n]-kv;
                     }
                   printf("\nYour decoded text is: %s\n", ch);
                   return 0;
