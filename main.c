@@ -70,6 +70,10 @@ int main()
                       if (ch[n]==' ') { }
                       else
                         {
+                          if(ch[n]>'z')
+                            {
+                              ch[n]=ch[n]+26;
+                            }
                           ch[n]=ch[n]+kv;
                         }
                     }
@@ -132,6 +136,10 @@ int main()
                   scanf("%d", &kv);
                   for(n=0; n<strlen(ch); n++)
                     {
+                      if(ch[n]>'z')
+                        {
+                          ch[n]=ch[n]-26;
+                        }
                       ch[n]=ch[n]-kv;
                     }
                   printf("\nYour decoded text is: %s\n", ch);
