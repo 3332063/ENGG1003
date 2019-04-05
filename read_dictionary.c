@@ -1,23 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define LOG_DIR "C:\\Users\\mitch\\Desktop\\Eng1003\\ENGG1003\\Dictionary.txt"
+char ch;
+FILE *fr;
+void getchara();
+
 int main()
 {
-  FILE *fr;
-  char ch, fileRead[50], filewrite[50];
-  scanf("%s", fileRead);
-  fr=fopen(fileRead, "r");
-  fw=fopen(filewrite, "w");
-  if(fr==NULL)
+  int i;
+  char *search= "the";
+  fr=fopen(LOG_DIR, "r");
+  getchara();
+  while(!feof(fr))
     {
-      perror("");
-      return 0;
+      for(i=0; search[i]!='\0'; i++)
+        {
+          if(search[i]==ch)
+            {
+              putchar(ch);
+              getchara();
+            }
+          else
+            {
+              i=-1;
+              putchar(ch);
+              getchar();
+            }
+        }
+      getch();
     }
-  printf("Enter a word: ");
-  scanf("%s", ch);
-  ch=fgetc(fr);
-  while (ch!=EOF)
-
-
   return 0;
 }
+
+void getchara()
+  {
+    ch = fgetc(fr);
+    if(feof(fr))
+      {
+        printf("\n\n\n\nEnd of file\n");
+        exit(EXIT_FAILURE);
+      }
+  }
