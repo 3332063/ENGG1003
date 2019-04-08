@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+  char* string="Mitchell";
+  char c=string[1];
+  printf("The second letter in %s is %c", string, c);
+  return 0;
+}
