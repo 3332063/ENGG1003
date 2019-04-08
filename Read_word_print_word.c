@@ -8,9 +8,9 @@ int main()
       "Mouse",
       "game",
       "laptop",
-      "compute",
-      "penis",
-      "licker"
+      "computer",
+      "phone",
+      "stick"
   };
   char english[15];
   printf("Enter an English word: ");
