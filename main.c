@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int op1, op2, op3, op4, op5, op6;
+int op1, op2, op3, op4, op5, op6, op7;
 
 int main()
 {

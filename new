@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char ch;
+
+int main()
+{
+  printf("Enter text to be decoded: ");
+  scanf("%s", word)
+}
