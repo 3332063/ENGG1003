@@ -22,8 +22,7 @@ int main(int argc, char const *argv[])
           num++;
         }
     }
-  printf("The word %s was found in the file dictionary.txt %d times\n",word,num );
-  num = 0;
+  printf("The word %s was found %d time/s\n", word, num);
   fclose(in_file);
   return 0;
 }
