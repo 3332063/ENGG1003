@@ -91,6 +91,8 @@ int main()
           printf("\nWould you like to decode your text\n");
           printf("1. From a .txt file\n");
           printf("2. From inside the console\n");
+          printf("3. From a .txt file with no key\n");
+          printf("4. From inside the console with no key\n");
           printf("Enter your option: ");
           scanf("%d", &op3);
           switch(op3)
@@ -143,6 +145,53 @@ int main()
                       ch[n]=ch[n]-kv;
                     }
                   printf("\nYour decoded text is: %s\n", ch);
+                  return 0;
+                }
+              case 3:
+                {
+                  printf("OPTION 3 WAS ENTERED\n");
+                  return 0;
+                }
+              case 4:
+                {
+                  char word[700];
+                  char ch, dec[700];
+                  int n, sv, chlen;
+                  printf("Enter a word to decrypt: ");
+                  gets(word);
+                  chlen=strlen(word);
+                  printf("The word has %d characters\n", chlen);
+                  for(sv=1; sv<27; sv++)
+                      {
+                        for(n=0; word[n]!='\0'; n++)
+                          {
+                            ch=word[n];
+                            if(ch>='a' && ch<='z')
+                              {
+                                ch=ch-sv;
+                                if(ch<'a')
+                                  {
+                                    ch=ch+26;
+                                  }
+                                dec[n]=ch;
+                              }
+                            else if(ch>='A' && ch<='Z')
+                              {
+                                ch=ch-sv;
+                                if(ch<'A')
+                                  {
+                                    ch=ch+26;
+                                  }
+                                dec[n]=ch;
+                              }
+                            else if (ch>=32 && ch<=64)
+                              {
+                                ch=ch;
+                                dec[n]=ch;
+                              }
+                          }
+                        printf("The possible decrypted message is %s\nKey value = %d\n\n", dec, sv);
+                      }
                   return 0;
                 }
               default: perror("");
