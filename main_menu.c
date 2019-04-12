@@ -45,32 +45,9 @@ int main()
                   ch=fgetc(fr);
                   while(ch!=EOF)
                     {
-                      if(ch>='a' && ch<='z')
-                        {
-                          ch=ch+sv;
-                          if(ch<'a')
-                            {
-                              ch=ch-26;
-                            }
-                          fprintf(fw, "%c", ch);
-                          ch=fgetc(fr);
-                        }
-                      if(ch>='A' && ch<='Z')
-                        {
-                          ch=ch+sv;
-                          if(ch<'a')
-                              {
-                                ch=ch-26;
-                              }
-                          fprintf(fw, "%c", ch);
-                          ch=fgetc(fr);
-                        }
-                      if(ch>=32 && ch<=64)
-                        {
-                          ch=ch;
-                          fprintf(fw, "%c", ch);
-                          ch=fgetc(fr);
-                        }
+                      ch=ch+sv;
+                      fprintf(fw, "%c", ch);
+                      ch=fgetc(fr);
                     }
                   fclose(fr);
                   fclose(fw);

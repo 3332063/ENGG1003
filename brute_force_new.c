@@ -40,7 +40,7 @@ int main()
                 dec[n]=ch;
               }
           }
-        printf("The possible decrypted message is %s\nKey value = %d\n\n", dec, sv);
+        printf("\nThe possible decrypted message is: %s\nKey value = %d\n\n---------------------------------\n", dec, sv);
       }
   return 0;
 }
