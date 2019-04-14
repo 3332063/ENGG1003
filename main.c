@@ -59,25 +59,46 @@ int main()
                 }
               case 2:
                 {
-                  int kv, n;
-                  char ch[40];
-                  printf("\nEnter the code to be encoded: ");
-                  scanf("%s", &ch);
-                  printf("Enter the key value: ");
-                  scanf("%d", &kv);
-                  for(n=0; n<strlen(ch); n++)
+                  int sv, n, i;
+                  char word[700], ch;
+                  for(i=1; i<2; i++)
                     {
-                      if (ch[n]==' ') { }
-                      else
-                        {
-                          if(ch[n]>'z')
-                            {
-                              ch[n]=ch[n]+26;
-                            }
-                          ch[n]=ch[n]+kv;
-                        }
+                      printf("\nEnter the code to be encoded: ");
+                      scanf("%s", word);
+                      system("pause");
                     }
-                  printf("Your encoded text is: %s\n", ch);
+                  printf("Enter the key value: ");
+                  scanf("%d", &sv);
+                  for(n=0; n<strlen(word); n++)
+                    {
+                      ch=word[n];
+                      if(ch>=97 && ch<=122)
+                        {
+                          ch=ch+sv;
+                          if(ch<97)
+                            {
+                              ch=ch-26;
+                            }
+                        }
+                      if(ch>=65 && ch<=90)
+                        {
+                          ch=ch+sv;
+                          if(ch<65)
+                            {
+                              ch=ch-26;
+                            }
+                          if(ch>=91)
+                            {
+                              ch=ch-26;
+                            }
+                        }
+                      if(ch>=0 && ch<=64)
+                        {
+                          ch=ch;
+                        }
+                      word[n]=ch;
+                    }
+                  printf("Your encoded text is: %s\n", word);
                   return 0;
                 }
               default: perror("");
