@@ -6,7 +6,13 @@ int op1, op2, op3, op4;
 
 int main(int argc, char const *argv[])
 {
-  printf("---Welcome to the encoder and decoder program---\n\n");
+  printf(" ____     __     ___  _______  __        ______    _____  .___  ___.  _______ \n");
+printf("\\\   \\\  /  \\\  /  / |   ____||  |      /      | // __  \\\||    \\//   ||   ____|\n");
+printf(" \\   \\/    \\/  /  |  |__   |  |     |  ,----'|  |  |  ||  \\  /  ||  |__   \n");
+printf("  \\             /   |   __|  |  |     |  |     |  |  |  ||  |\\/|  ||   __|  \n");
+printf("   \\    /\\    /    |  |____ |  `----.|  `----.|  `--'  ||  |   |  ||  |____ \n");
+printf("    \\__/  \\__/     |_______||_______| \\______|\\_____//|__|   |__||_______|\n");
+  printf("\n---Welcome to the encoder and decoder program---\n\n");
   printf("Main Menu\n");
   printf("1. Encode text\n");
   printf("2. Decode text\n");
@@ -238,9 +244,10 @@ int main(int argc, char const *argv[])
                 }
               case 4:
                 {
-                  char word[700];
-                  char ch, dec[700];
-                  int n, sv, chlen;
+                  char word[550];
+                  char ch, dec[550];
+                  int n, sv, chlen, option;
+                  char pftpr;
                   printf("Enter a word to decrypt: ");
                   scanf(" %[^\n]s", word);
                   chlen=strlen(word);
@@ -274,9 +281,33 @@ int main(int argc, char const *argv[])
                                 dec[n]=ch;
                               }
                           }
-                        printf("\nThe possible decrypted message is: %s\nKey value = %d\n\n---------------------------------\n", dec, sv);
+                        printf("\nThe possible decrypted message is:\n %s\nKey value = %d\n----------------------", dec, sv);
+                        printf("\n\nDoes this decrypted message make sense?\n");
+                        printf("1. Yes\n");
+                        printf("2. No\n");
+                        printf("Enter your option: ");
+                        scanf("%d", &option);
+                        if(option==1)
+                          {
+                            printf("\nThe code was sucessfully decoded\n");
+                            return 0;
+                          }
+                        if (option==2)
+                          {
+
+                          }
                       }
-                  return 0;
+                  printf("\n\nYour code could not be decoded.... Press F to pay respects\n");
+                  scanf(" %c", &pftpr);
+                  if(pftpr=='F')
+                    {
+                      printf("Respects given\n");
+                    }
+                  else
+                    {
+                      printf("Disrespectful c*nt\n");
+                      return 0;
+                    }
                 }
             }
         }

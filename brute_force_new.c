@@ -4,13 +4,11 @@
 
 int main()
 {
-  char word[700];
-  char ch, dec[700];
-  int n, sv, chlen;
+  char word[600];
+  char ch, dec[600];
+  int n, sv, chlen, option;
   printf("Enter a word to decrypt: ");
   gets(word);
-  chlen=strlen(word);
-  printf("The word has %d characters\n", chlen);
   for(sv=1; sv<27; sv++)
       {
         for(n=0; word[n]!='\0'; n++)
@@ -40,7 +38,22 @@ int main()
                 dec[n]=ch;
               }
           }
-        printf("\nThe possible decrypted message is: %s\nKey value = %d\n\n---------------------------------\n", dec, sv);
+          printf("\nThe possible decrypted message is:\n %s\nKey value = %d\n----------------------", dec, sv);
+          printf("\n\nDoes this decrypted message make sense?\n");
+          printf("1. Yes\n");
+          printf("2. No\n");
+          printf("Enter your option: ");
+          scanf("%d", &option);
+          if(option==1)
+            {
+              printf("The code was sucessfully decoded\n");
+              return 0;
+            }
+          if (option==2)
+            {
+
+            }
       }
+  printf("Your code could not be docoded... Sorry\n");
   return 0;
 }
