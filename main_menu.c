@@ -81,10 +81,12 @@ int main(int argc, char const *argv[])
               case 2:
                 {
                   char word2[700];
-                  char ch;
-                  int n, sv=7;
                   printf("Enter a string to encrypt: ");
-                  gets(word2);
+                  scanf(" %[^\n]s", word2);
+                  char ch;
+                  int n, sv;
+                  printf("\nEnter the key value: ");
+                  scanf("%d", &sv);
                   for(n=0; n<strlen(word2); n++)
                     {
                       ch=word2[n];
@@ -192,9 +194,11 @@ int main(int argc, char const *argv[])
                 {
                   char word[700];
                   char ch;
-                  int n, sv=7;
+                  int n, sv;
                   printf("Enter a string to decrypt: ");
-                  gets(word);
+                  scanf(" %[^\n]s", word);
+                  printf("\nEnter the key value: ");
+                  scanf("%d", &sv);
                   for(n=0; n<strlen(word); n++)
                     {
                       ch=word[n];
@@ -238,7 +242,7 @@ int main(int argc, char const *argv[])
                   char ch, dec[700];
                   int n, sv, chlen;
                   printf("Enter a word to decrypt: ");
-                  gets(word);
+                  scanf(" %[^\n]s", word);
                   chlen=strlen(word);
                   printf("The word has %d characters\n", chlen);
                   for(sv=1; sv<27; sv++)
