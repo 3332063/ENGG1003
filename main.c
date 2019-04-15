@@ -59,14 +59,11 @@ int main()
                 }
               case 2:
                 {
-                  int sv, n, i;
+                  int sv, n;
                   char word[700], ch;
                   for(i=1; i<2; i++)
-                    {
-                      printf("\nEnter the code to be encoded: ");
-                      scanf("%s", word);
-                      system("pause");
-                    }
+                  printf("\nEnter the code to be encoded: ");
+                  scanf("%s", word);
                   printf("Enter the key value: ");
                   scanf("%d", &sv);
                   for(n=0; n<strlen(word); n++)

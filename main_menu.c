@@ -161,44 +161,35 @@ int main(int argc, char const *argv[])
                         }
                       case 2:
                         {
-                          void main1()
-                          {
-                            char *encryption(char []);
-                            char lowerchars[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-                            char upperchars[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-                            char key[26];
-                            int i,keyv,choice,flag=0;
-                            char *text,msg[255];
-                            printf("Enter text to encode: ");
-                            scanf("%[^\n]",msg);
-                            text=encryption(msg);
-                            flag=1;
-                          }
-
-                          char *encryption(char cipher_text[])
-                          {
-                            int i,j, keyv;
-                            printf("Enter the 26 characters for encryption:");
-                            scanf("%s",keyv);
-                            for(i=0;i<strlen(cipher_text);i++)
-                              {
-                                for(j=0;j<26;j++)
-                                  {
-                                    if(upperchars[j]==cipher_text[i])
-                                      {
-                                        cipher_text[i]=keyv[j];
-                                        break;
-                                      }
-                                    if(lowerchars[j]==cipher_text[i])
-                                      {
-                                        cipher_text[i]=keyv[j];
-                                        break;
-                                      }
-                                  }
-                              }
-                            printf("\nYour encrypted msg is: %s",cipher_text);
-                            return cipher_text;
-                          }
+                          char lowerchars[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+                          char upperchars[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+                          char key[26];
+                          int flag=0;
+                          char msg[255];
+                          printf("Enter text to encode: ");
+                          scanf(" %[^\n]",msg);
+                          flag=1;
+                          int k,j;
+                          printf("Enter the 26 characters for encryption: ");
+                          scanf("%s",key);
+                          for(k=0;k<strlen(msg);k++)
+                            {
+                              for(j=0;j<26;j++)
+                                {
+                                  if(upperchars[j]==msg[k])
+                                    {
+                                      msg[k]=key[j];
+                                      break;
+                                    }
+                                  if(lowerchars[j]==msg[k])
+                                    {
+                                      msg[k]=key[j];
+                                      break;
+                                    }
+                                }
+                            }
+                          printf("\nYour encrypted msg is: %s",msg);
+                          return 0;
                         }
                     }
                 }
