@@ -188,7 +188,7 @@ int main(int argc, char const *argv[])
                                     }
                                 }
                             }
-                          printf("\nYour encrypted msg is: %s",msg);
+                          printf("\nYour encrypted message is: %s",msg);
                           return 0;
                         }
                     }
