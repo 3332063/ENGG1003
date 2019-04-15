@@ -54,6 +54,6 @@ int main()
 
             }
       }
-  printf("Your code could not be docoded... Sorry\n");
+  printf("\n\nYour code could not be docoded... Sorry\n");
   return 0;
 }

@@ -19,10 +19,10 @@ int main()
       perror("");
       return 0;
     }
-  ch=fgetc(fr);
-  while(ch!=EOF)
+  for(sv=1; sv<27; sv++)
     {
-      for(sv=1; sv<27; sv++)
+      ch=fgetc(fr);
+      while(ch!=EOF)
         {
           op=(int)ch;
           if(op>=97 && op<=122)
@@ -45,9 +45,9 @@ int main()
                   op=op+26;
                 }
             }
-          else if (ch>=0 && ch<=64)
+          else if (op>=0 && op<=64)
             {
-              ch=ch;
+              op=op;
             }
           fprintf(fw, "%c", op);
           ch=fgetc(fr);

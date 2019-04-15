@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int op1, op2, op3, op4;
+int op1, op2, op3, op4, op5, op6;
 
 int main(int argc, char const *argv[])
 {
@@ -29,111 +29,178 @@ int main(int argc, char const *argv[])
     {
       case 1:
         {
-          printf("How would you like to encode the text?\n");
-          printf("1. From a .txt file\n");
-          printf("2. From inside the console\n");
+          printf("\nIs the code\n");
+          printf("1. Rotation Cipher\n");
+          printf("2. Substitution Cipher\n");
           printf("Enter your option: ");
-          scanf("%d", &op2);
-          switch(op2)
+          scanf("%d", &op4);
+          switch(op4)
             {
               case 1:
                 {
-                  FILE *fr, *fw;
-                  char ch, fileread[700], filewrite[700];
-                  int op, sv;
-                  printf("Enter the name of the file to be encoded (.txt file): ");
-                  scanf("%s", fileread);
-                  printf("Enter the key value: ");
-                  scanf("%d", &sv);
-                  printf("Enter the name of the output file (.txt file): ");
-                  scanf("%s", filewrite);
-                  fr=fopen(fileread, "r");
-                  fw=fopen(filewrite, "w");
-                  if (fr==NULL)
+                  printf("\nHow would you like to encode the text?\n");
+                  printf("1. From a .txt file\n");
+                  printf("2. From inside the console\n");
+                  printf("Enter your option: ");
+                  scanf("%d", &op2);
+                  switch(op2)
                     {
-                      perror("");
-                      return 0;
+                      case 1:
+                        {
+                          FILE *fr, *fw;
+                          char ch, fileread[700], filewrite[700];
+                          int op, sv;
+                          printf("\nEnter the name of the file to be encoded (.txt file): ");
+                          scanf("%s", fileread);
+                          printf("Enter the key value: ");
+                          scanf("%d", &sv);
+                          printf("Enter the name of the output file (.txt file): ");
+                          scanf("%s", filewrite);
+                          fr=fopen(fileread, "r");
+                          fw=fopen(filewrite, "w");
+                          if (fr==NULL)
+                            {
+                              perror("");
+                              return 0;
+                            }
+                          ch=fgetc(fr);
+                          while(ch!=EOF)
+                            {
+                              op=(int)ch;
+                              if(op>=97 && op<=122)
+                                {
+                                  op=op+sv;
+                                  if(op<97)
+                                    {
+                                      op=op-26;
+                                    }
+                                }
+                              if(op>=65 && op<=90)
+                                {
+                                  op=op+sv;
+                                  if(op<65)
+                                    {
+                                      op=op-26;
+                                    }
+                                  if(op>=91)
+                                    {
+                                      op=op-26;
+                                    }
+                                }
+                              if(op>=0 && op<=64)
+                                {
+                                  op=op;
+                                }
+                              fprintf(fw, "%c", op);
+                              ch=fgetc(fr);
+                            }
+                          fclose(fr);
+                          fclose(fw);
+                          printf("\nThe file has sucessfully been encoded and saved as %s\n", filewrite);
+                          return 0;
+                        }
+                      case 2:
+                        {
+                          char word2[100];
+                          printf("\nEnter a string to encrypt: ");
+                          scanf(" %[^\n]s", word2);
+                          char ch;
+                          int n, sv;
+                          printf("\nEnter the key value: ");
+                          scanf("%d", &sv);
+                          for(n=0; n<strlen(word2); n++)
+                            {
+                              ch=word2[n];
+                              if(ch>=97 && ch<=122)
+                                {
+                                  ch=ch+sv;
+                                  if(ch<97)
+                                    {
+                                      ch=ch-26;
+                                    }
+                                }
+                              if(ch>=65 && ch<=90)
+                                {
+                                  ch=ch+sv;
+                                  if(ch<65)
+                                    {
+                                      ch=ch-26;
+                                    }
+                                  if(ch>=91)
+                                    {
+                                      ch=ch-26;
+                                    }
+                                }
+                              if(ch>=0 && ch<=64)
+                                {
+                                  ch=ch;
+                                }
+                              word2[n]=ch;
+                            }
+                          printf("\nThe encrypted message is: %s", word2);
+                          return 0;
+                        }
+                      default: printf("Invalid option....\n");
+                        {
+                          return 0;
+                        }
                     }
-                  ch=fgetc(fr);
-                  while(ch!=EOF)
-                    {
-                      op=(int)ch;
-                      if(op>=97 && op<=122)
-                        {
-                          op=op+sv;
-                          if(op<97)
-                            {
-                              op=op-26;
-                            }
-                        }
-                      if(op>=65 && op<=90)
-                        {
-                          op=op+sv;
-                          if(op<65)
-                            {
-                              op=op-26;
-                            }
-                          if(op>=91)
-                            {
-                              op=op-26;
-                            }
-                        }
-                      if(op>=0 && op<=64)
-                        {
-                          op=op;
-                        }
-                      fprintf(fw, "%c", op);
-                      ch=fgetc(fr);
-                    }
-                  fclose(fr);
-                  fclose(fw);
-                  printf("\nThe file has sucessfully been encoded and saved as %s\n", filewrite);
-                  return 0;
                 }
               case 2:
                 {
-                  char word2[700];
-                  printf("Enter a string to encrypt: ");
-                  scanf(" %[^\n]s", word2);
-                  char ch;
-                  int n, sv;
-                  printf("\nEnter the key value: ");
-                  scanf("%d", &sv);
-                  for(n=0; n<strlen(word2); n++)
+                  printf("\nHow would you like to encode the text?\n");
+                  printf("1. From a .txt file\n");
+                  printf("2. From inside the console\n");
+                  printf("Enter your option: ");
+                  scanf("%d", &op5);
+                  switch(op5)
                     {
-                      ch=word2[n];
-                      if(ch>=97 && ch<=122)
+                      case 1:
                         {
-                          ch=ch+sv;
-                          if(ch<97)
-                            {
-                              ch=ch-26;
-                            }
+                          //do some code;
                         }
-                      if(ch>=65 && ch<=90)
+                      case 2:
                         {
-                          ch=ch+sv;
-                          if(ch<65)
-                            {
-                              ch=ch-26;
-                            }
-                          if(ch>=91)
-                            {
-                              ch=ch-26;
-                            }
+                          void main1()
+                          {
+                            char *encryption(char []);
+                            char lowerchars[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+                            char upperchars[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+                            char key[26];
+                            int i,keyv,choice,flag=0;
+                            char *text,msg[255];
+                            printf("Enter text to encode: ");
+                            scanf("%[^\n]",msg);
+                            text=encryption(msg);
+                            flag=1;
+                          }
+
+                          char *encryption(char cipher_text[])
+                          {
+                            int i,j, keyv;
+                            printf("Enter the 26 characters for encryption:");
+                            scanf("%s",keyv);
+                            for(i=0;i<strlen(cipher_text);i++)
+                              {
+                                for(j=0;j<26;j++)
+                                  {
+                                    if(upperchars[j]==cipher_text[i])
+                                      {
+                                        cipher_text[i]=keyv[j];
+                                        break;
+                                      }
+                                    if(lowerchars[j]==cipher_text[i])
+                                      {
+                                        cipher_text[i]=keyv[j];
+                                        break;
+                                      }
+                                  }
+                              }
+                            printf("\nYour encrypted msg is: %s",cipher_text);
+                            return cipher_text;
+                          }
                         }
-                      if(ch>=0 && ch<=64)
-                        {
-                          ch=ch;
-                        }
-                      word2[n]=ch;
                     }
-                  printf("\nThe encrypted message is: %s", word2);
-                  return 0;
-                }
-              default: printf("Invalid option....\n");
-                {
-                  return 0;
                 }
             }
         }
@@ -142,8 +209,7 @@ int main(int argc, char const *argv[])
           printf("How would you like to decode the text?\n");
           printf("1. From a .txt file\n");
           printf("2. From inside the console\n");
-          printf("3. From a .txt file with no key\n");
-          printf("4. From inside the console with no key\n");
+          printf("3. From inside the console with NO KEY\n");
           printf("Enter your option: ");
           scanf("%d", &op3);
           switch(op3)
@@ -245,16 +311,11 @@ int main(int argc, char const *argv[])
                 }
               case 3:
                 {
-                  /*case 3*/
-                  printf("No option yet\n");
-                }
-              case 4:
-                {
-                  char word[550];
-                  char ch, dec[550];
+                  char word[100];
+                  char ch, dec[100];
                   int n, sv, chlen, option;
                   char pftpr;
-                  printf("Enter a word to decrypt: ");
+                  printf("Enter the text to decrypt: ");
                   scanf(" %[^\n]s", word);
                   chlen=strlen(word);
                   printf("The word has %d characters\n", chlen);
@@ -305,7 +366,7 @@ int main(int argc, char const *argv[])
                       }
                   printf("\n\nYour code could not be decoded.... Press F to pay respects\n");
                   scanf(" %c", &pftpr);
-                  if(pftpr=='F')
+                  if(pftpr=='F'||pftpr=='f')
                     {
                       printf("Respects given\n");
                     }
