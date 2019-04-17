@@ -163,7 +163,7 @@ int main(int argc, char const *argv[])
                         {
                           char lowerchars[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
                           char upperchars[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-                          char key[26];
+                          char key[27];
                           int flag=0;
                           char msg[255];
                           printf("Enter text to encode: ");
@@ -405,7 +405,7 @@ int main(int argc, char const *argv[])
                           printf("\nEnter text to decode: ");
                           scanf(" %[^\n]s", msg);
                           int k,j;
-                          printf("Enter the 26 characters for decryption (capital letters only): ");
+                          printf("\nEnter the 26 characters for decryption (capital letters only): ");
                           scanf("%s",key);
                           for(k=0;k<strlen(msg);k++)
                             {
