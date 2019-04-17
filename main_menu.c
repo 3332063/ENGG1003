@@ -400,8 +400,8 @@ int main(int argc, char const *argv[])
                         {
                           char lowerchars[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
                           char upperchars[26]={'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-                          char key[26];
-                          char msg[10240];
+                          char key[27];
+                          char msg[1024];
                           printf("\nEnter text to decode: ");
                           scanf(" %[^\n]s", msg);
                           int k,j;
