@@ -59,12 +59,12 @@ int i,val,j;
 char cipher[255];
 strcpy(cipher,cipher_text);
 printf("\n Decryption Process \n ");
-for(i=0;i<strlen(cipher);i++){
+for(i=0;i<strlen(msg);i++){
 for(j=0;j<26;j++)
 {
-if(cipher[i]==key[j])
+if(msg[i]==key[j])
 {
-cipher[i]=chars[j];
+msg[i]=upperchars[j];
 break;
 }
 }
